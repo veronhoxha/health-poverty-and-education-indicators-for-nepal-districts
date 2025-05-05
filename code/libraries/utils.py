@@ -3,10 +3,13 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 from matplotlib.patches import Rectangle, Patch 
 import folium
+from folium.features import DivIcon
+from folium.plugins import MiniMap
 import seaborn as sns
 from scipy.stats import zscore, pearsonr
 import plotly.express as px
 from branca.colormap import linear
+import branca
 import json
 import mapclassify
 
@@ -105,3 +108,67 @@ def extreme_value_variables(gdf, variable, n=5):
     
     return bottom_df, top_df
 
+
+def make_square_html(label, color):
+    return (
+        f"<div style='width:30px;height:30px;"
+        f"background:{color};border:1px solid #444;"
+        f"display:flex;align-items:center;justify-content:center;"
+        f"font-size:12px;color:#000;border-radius:4px;'>"
+        f"{label}</div>"
+    )
+
+
+def interactive_map(gdf):
+ 
+    gdf["centroid"] = gdf.geometry.representative_point()
+
+    m = folium.Map(location=[28.2, 84.1], zoom_start=7, control_scale=True, tiles=None)
+
+    folium.TileLayer("OpenStreetMap", name="Standard map", show=True).add_to(m)
+    folium.TileLayer("CartoDB Positron", name="Simplistic map", show=False).add_to(m)
+    folium.TileLayer(tiles="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+        attr="Esri", name="Satellite map", overlay=False, show=False).add_to(m)
+
+
+    folium.GeoJson(gdf[["district","geometry"]].to_json(), name="District borders",
+        style_function=lambda f: {"color":"black","weight":1,"fillOpacity":0}
+    ).add_to(m)
+
+    cmap = branca.colormap.linear.RdYlGn_09.scale(
+        gdf["schlppop"].min(),
+        gdf["schlppop"].max()
+    )
+
+    cmap.caption = "Schools per 1,000 population"
+
+    squares = folium.FeatureGroup(name="Schools per 1k pop squares", show=True)
+    for idx, row in gdf.iterrows():
+        lat, lon = row["centroid"].y, row["centroid"].x
+        spk = row["schlppop"]             
+        cnt = int(row["schoolcnt"])       
+        pop = int(row["population"])       
+        color = cmap(spk)
+        label = f"{spk:.2f}"
+        html = make_square_html(label, color)
+        icon = DivIcon(icon_size=(30,30), icon_anchor=(15,15), html=html)
+        folium.Marker(
+            location=(lat, lon),
+            icon=icon,
+            tooltip=(
+                f"<b>{row["district"]}</b><br>"
+                f"Total schools: {cnt}<br>"
+                f"Schools per 1k pop: {spk:.2f}<br>"
+                f"Population: {pop:,}"
+            )
+        ).add_to(squares)
+
+    squares.add_to(m)
+
+    cmap.add_to(m)
+    MiniMap(tile_layer="CartoDB Positron", position="bottomright").add_to(m)
+    folium.LayerControl(collapsed=False).add_to(m)
+
+    m.save("../images/schools_per_1000_population_nepal.html")
+
+    return m
