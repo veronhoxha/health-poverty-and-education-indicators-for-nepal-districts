@@ -1,4 +1,5 @@
 import geopandas as gpd
+import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 from matplotlib.patches import Rectangle, Patch 
@@ -12,6 +13,10 @@ from branca.colormap import linear
 import branca
 import json
 import mapclassify
+
+# warnings
+import warnings
+warnings.filterwarnings('ignore')
 
 # ----------------------------------------------------------------
 
