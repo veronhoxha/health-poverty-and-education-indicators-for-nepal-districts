@@ -131,7 +131,7 @@ def interactive_map(gdf):
     m = folium.Map(location=[28.2, 84.1], zoom_start=7, control_scale=True, tiles=None)
 
     folium.TileLayer("OpenStreetMap", name="Standard map", show=True).add_to(m)
-    folium.TileLayer("CartoDB Positron", name="Simplistic map", show=False).add_to(m)
+    folium.TileLayer("CartoDB Positron", name="Simple map", show=False).add_to(m)
     folium.TileLayer(tiles="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
         attr="Esri", name="Satellite map", overlay=False, show=False).add_to(m)
 
