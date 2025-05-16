@@ -49,7 +49,7 @@ When the virtual environment is activated, install all necessary packages by run
 
 ## Usage
 To run the notebook and recreate results:
-1. Execute the Jupyter Notebooks:
+1. Execute the Jupyter Notebook:
     - `"notebook.ipynb"`
 
 ## Contributors
