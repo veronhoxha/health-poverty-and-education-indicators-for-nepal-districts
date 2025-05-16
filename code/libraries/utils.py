@@ -74,18 +74,18 @@ def choropleth_mapping(gdf, variables, title, legend_label=None, crs_epsg=3857):
         ax.annotate("", xy=(x0+3*size, y0-0.01), xytext=(x0, y0-0.01),
                     xycoords="axes fraction", arrowprops=dict(arrowstyle="->", lw=1.2)
         )
-        ax.text(x0, y0-0.03, "Low", transform=ax.transAxes, ha="left", va="center")
-        ax.text(x0+3*size, y0-0.03, "High", transform=ax.transAxes, ha="right", va="center")
+        ax.text(x0, y0-0.04, "Low", transform=ax.transAxes, ha="left", va="center", fontsize=14)
+        ax.text(x0+3*size, y0-0.04, "High", transform=ax.transAxes, ha="right", va="center", fontsize=14)
 
-        ax.text(x0+1.5*size, y0-0.04, var1, transform=ax.transAxes, ha="center", va="top", fontweight="bold")
+        ax.text(x0+1.5*size, y0-0.055, var1, transform=ax.transAxes, ha="center", va="top", fontweight="bold", fontsize=14)
 
         ax.annotate("", xy=(x0-0.01, y0+3*size), xytext=(x0-0.01, y0), xycoords="axes fraction", 
                     arrowprops=dict(arrowstyle="->", lw=1.2))
-        ax.text(x0-0.02, y0, "Low", transform=ax.transAxes, ha="center", va="bottom", rotation=90)
-        ax.text(x0-0.02, y0+3*size, "High", transform=ax.transAxes, ha="center", va="top", rotation=90)
-        ax.text(x0-0.045, y0+1.5*size, var2, transform=ax.transAxes, ha="right", va="center", rotation=90, fontweight="bold")
+        ax.text(x0-0.025, y0, "Low", transform=ax.transAxes, ha="center", va="bottom", rotation=90, fontsize=14)
+        ax.text(x0-0.025, y0+3*size, "High", transform=ax.transAxes, ha="center", va="top", rotation=90, fontsize=14)
+        ax.text(x0-0.045, y0+1.5*size, var2, transform=ax.transAxes, ha="right", va="center", rotation=90, fontweight="bold", fontsize=14)
 
-    ax.set_title(title, fontsize=16, fontweight="bold")
+    ax.set_title(title, fontsize=18, fontweight="bold")
     ax.set_axis_off()
     plt.tight_layout()
     plt.show()
