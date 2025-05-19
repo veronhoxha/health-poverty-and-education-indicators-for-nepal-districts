@@ -1,7 +1,7 @@
-# Health, Poverty and Education in Nepal Districts
+# Health, Poverty, and Education in Nepal Districts
 
 ## Introduction
-This repository hosts all the necessary resources for the project titled ``"Health, Poverty and Education in Nepal Districts"``.
+This repository hosts all the necessary resources for the project titled ``"Health, Poverty, and Education in Nepal Districts"``.
 
 ## Table of Contents
 - [Introduction](#introduction)
