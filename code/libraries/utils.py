@@ -21,12 +21,24 @@ warnings.filterwarnings('ignore')
 # ----------------------------------------------------------------
 
 def choropleth_mapping(gdf, variables, title, legend_label=None, crs_epsg=3857):
+    '''
+    Function to create a univariate or bivariate choropleth map.
+    
+    Parameters:
+        - gdf: GeoDataFrame with the data to plot
+        - variables: name of the variable(s) to plot
+        - title: title of the plot
+        - legend_label: label for the legend (default is None)
+        - crs_epsg: EPSG code for the coordinate reference system (default is 3857)
+    Returns:
+        - None: displays the plot
+    '''
     
     gdf_proj = gdf.to_crs(epsg=crs_epsg)
     
     fig, ax = plt.subplots(figsize=(10,10))
 
-    # in case i want an univariate choropleth mapp
+    # in case i want an univariate choropleth map
     if isinstance(variables, str):
         var = variables
         gdf_proj.plot(column=var, cmap="Reds", linewidth=0.5, edgecolor="grey",
@@ -70,7 +82,7 @@ def choropleth_mapping(gdf, variables, title, legend_label=None, crs_epsg=3857):
                 )
                 ax.add_patch(rect)
 
-
+        # legend labels 
         ax.annotate("", xy=(x0+3*size, y0-0.01), xytext=(x0, y0-0.01),
                     xycoords="axes fraction", arrowprops=dict(arrowstyle="->", lw=1.2)
         )
@@ -92,15 +104,41 @@ def choropleth_mapping(gdf, variables, title, legend_label=None, crs_epsg=3857):
     
     
 def pearson_report(gdf, x, y):
+    '''
+    Function to calculate the Pearson correlation coefficient and p-value between two variables.
+    
+    Parameters:
+        - gdf: GeoDataFrame
+        - x: name of the first variable
+        - y: name of the second variable
+    Returns:
+        - r: Pearson correlation coefficient
+        - p: p-value
+    '''
+    
     series = gdf[[x, y]].dropna()
     r, p = pearsonr(series[x], series[y])
     return r, p
 
     
 def extreme_value_variables(gdf, variable, n=5):
+    '''
+    Function to find the n lowest and n highest values of a variable.
+    
+    Parameters:
+        - gdf: GeoDataFrame
+        - variable: name of the variable to analyze
+        - n: number of extreme values to find (default is 5)
+    Returns:
+        - bottom_df: DataFrame with the n lowest values
+        - top_df: DataFrame with the n highest values
+    '''
+    
     df = gdf[["district", variable]].dropna(subset=[variable])
     
+    # bottom_df are the n lowest values of the variable
     bottom_df = df.nsmallest(n, variable)
+    # top_df are the n highest values of the variable
     top_df = df.nlargest(n, variable)
     
     print(f"Lowest {n} districts by {variable}:")
@@ -115,6 +153,16 @@ def extreme_value_variables(gdf, variable, n=5):
 
 
 def make_square_html(label, color):
+    '''
+    Function to create a square HTML element for Folium markers.
+    
+    Parameters:
+        - label: text to display inside the square
+        - color: background color of the square
+    Returns:
+        - html: HTML string for the square
+    '''
+    
     return (
         f"<div style='width:30px;height:30px;"
         f"background:{color};border:1px solid #444;"
@@ -125,27 +173,40 @@ def make_square_html(label, color):
 
 
 def interactive_map(gdf):
+    '''
+    Function to create an interactive map with Folium.
+    
+    Parameters:
+        - gdf: GeoDataFrame with the data to plot
+    Returns:
+        - m: Folium Map object
+    '''
  
     gdf["centroid"] = gdf.geometry.representative_point()
 
+    # location coodinates lat and long found using https://www.latlong.net/
     m = folium.Map(location=[28.2, 84.1], zoom_start=7, control_scale=True, tiles=None)
 
+    # folium different tile layers, three different map views OpenStreetMap, CartoDB Positron, and Esri Satellite
     folium.TileLayer("OpenStreetMap", name="Standard map", show=True).add_to(m)
     folium.TileLayer("CartoDB Positron", name="Simple map", show=False).add_to(m)
     folium.TileLayer(tiles="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
         attr="Esri", name="Satellite map", overlay=False, show=False).add_to(m)
 
 
+    # adding the district borders
     folium.GeoJson(gdf[["district","geometry"]].to_json(), name="District borders",
         style_function=lambda f: {"color":"black","weight":1,"fillOpacity":0}
     ).add_to(m)
 
+    # color map
     cmap = branca.colormap.linear.RdYlGn_09.scale(
         gdf["schlppop"].min(),
         gdf["schlppop"].max()
     )
 
     cmap.caption = "Schools per 1,000 population"
+
 
     squares = folium.FeatureGroup(name="Schools per 1k pop squares", show=True)
     for idx, row in gdf.iterrows():
@@ -171,9 +232,11 @@ def interactive_map(gdf):
     squares.add_to(m)
 
     cmap.add_to(m)
+    # adding a minimap to the map
     MiniMap(tile_layer="CartoDB Positron", position="bottomright").add_to(m)
     folium.LayerControl(collapsed=False).add_to(m)
 
+    # saving the map to an HTML file
     m.save("../images/schools_per_1000_population_nepal.html")
 
     return m
