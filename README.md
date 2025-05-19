@@ -17,7 +17,7 @@ This repository hosts all the necessary resources for the project titled ``"Heal
 ## Project Structure
 
 ### Code
-- `"notebook.ipynb"`: Jupyter Notebook where all the analysis if performed.
+- `"notebook.ipynb"`: Jupyter Notebook where all the analysis is performed.
 - `"libraries/utils.py"`: Python file containing functions used in `"notebook.ipynb"`.
 
 ### Data
