@@ -34,14 +34,14 @@ def choropleth_mapping(gdf, variables, title, legend_label=None, crs_epsg=3857):
         - None: displays the plot
     '''
     
-    gdf_proj = gdf.to_crs(epsg=crs_epsg)
+    gdf_merc = gdf.to_crs(epsg=crs_epsg)
     
     fig, ax = plt.subplots(figsize=(10,10))
 
     # in case i want an univariate choropleth map
     if isinstance(variables, str):
         var = variables
-        gdf_proj.plot(column=var, cmap="Reds", linewidth=0.5, edgecolor="grey",
+        gdf_merc.plot(column=var, cmap="Reds", linewidth=0.5, edgecolor="grey",
             legend=True, legend_kwds={
                 "label": legend_label or var,
                 "orientation": "horizontal",
@@ -53,11 +53,11 @@ def choropleth_mapping(gdf, variables, title, legend_label=None, crs_epsg=3857):
         var1, var2 = variables
         k = 3
 
-        q1 = mapclassify.Quantiles(gdf_proj[var1], k=k)
-        q2 = mapclassify.Quantiles(gdf_proj[var2], k=k)
-        gdf_proj[f"{var1}_q"] = q1.yb
-        gdf_proj[f"{var2}_q"] = q2.yb
-        gdf_proj["bivar"] = gdf_proj[f"{var2}_q"]*k + gdf_proj[f"{var1}_q"]
+        q1 = mapclassify.Quantiles(gdf_merc[var1], k=k)
+        q2 = mapclassify.Quantiles(gdf_merc[var2], k=k)
+        gdf_merc[f"{var1}_q"] = q1.yb
+        gdf_merc[f"{var2}_q"] = q2.yb
+        gdf_merc["bivar"] = gdf_merc[f"{var2}_q"]*k + gdf_merc[f"{var1}_q"]
 
         # palette and bivariate map inspired from https://www.joshuastevens.net/cartography/make-a-bivariate-choropleth-map/
         palette = ["#e8e8e8","#ace4e4","#5ac8c8",
@@ -66,7 +66,7 @@ def choropleth_mapping(gdf, variables, title, legend_label=None, crs_epsg=3857):
         
         cmap = ListedColormap(palette)
 
-        gdf_proj.plot(column="bivar", cmap=cmap, linewidth=0.5, edgecolor="grey",legend=False, ax=ax)
+        gdf_merc.plot(column="bivar", cmap=cmap, linewidth=0.5, edgecolor="grey",legend=False, ax=ax)
 
         # matrix legend
         x0, y0, size = 0.02, 0.05, 0.06
