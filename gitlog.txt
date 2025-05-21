@@ -1,0 +1,215 @@
+commit 084f1e8a301a154b6775826013acc48fde8f11c9
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Wed May 21 14:08:22 2025 +0200
+
+    report added
+
+commit d77d0ea49dde6d21174da5af1855b66637071ea3
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Wed May 21 13:46:10 2025 +0200
+
+    update in LISA, added permutation and seed for reproducibility
+
+commit eebe5a4d6247a1a1f63876816ef9cdc755db5149
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Wed May 21 12:27:28 2025 +0200
+
+    new image added
+
+commit 1fc43c647f48ef804046a3cab1b557ce5853e659
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Wed May 21 12:27:16 2025 +0200
+
+    update
+
+commit 02cf2a8344cfcfc42ddce689c2067181c8ea1fc4
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Wed May 21 10:30:20 2025 +0200
+
+    small naming change in variable to align with the other cases
+
+commit 2cc444c624fcd6c65a858a45a5b66ee13945fb18
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Wed May 21 10:11:23 2025 +0200
+
+    new modified plot
+
+commit 341f66247fe23ddb6ddb87abf62781c8d19c6d1f
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Wed May 21 10:10:48 2025 +0200
+
+    small mistake in words corrected
+
+commit c0cca18516a8bc53701d46360d2568aec627c90c
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Mon May 19 13:25:52 2025 +0200
+
+    requirements.txt added
+
+commit 3ee9017e10e83ef2ef61f0cdde1967ce970a2f03
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Mon May 19 13:24:58 2025 +0200
+
+    updates
+
+commit d56ddffc91fb6c39fd0b6781fc194040b7052b8e
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Mon May 19 13:24:40 2025 +0200
+
+    README.md updated
+
+commit f79a6c56f16c201305940d48cd96d248ecbc68c4
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Mon May 19 11:20:26 2025 +0200
+
+    added some comments in the notebook
+
+commit 67120822d0743daf61b229cb7836358562813ad2
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Mon May 19 11:13:11 2025 +0200
+
+    added multiline function comments in utils.py
+
+commit 2b42eb0f0a400aef675755f85b5eb005dfa293ca
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Mon May 19 10:49:03 2025 +0200
+
+    README.md updated
+
+commit 61ca7b6da6b9a2517236b41dc47874e867317484
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Mon May 19 10:47:01 2025 +0200
+
+    notebook updated
+
+commit fe0b755e7e73c8f4a30dcdc02d78bc04e8b88bc5
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Mon May 19 10:46:39 2025 +0200
+
+    new images added
+
+commit 03316a87d0a1e3900cb194db5314005dac267556
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Fri May 16 14:14:31 2025 +0200
+
+    updated images
+
+commit 90f06ac43d10bd9c3a328c36f879b49045bceb08
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Fri May 16 14:14:10 2025 +0200
+
+    plots updated
+
+commit 6f6b180ece9be9690d96c867c8f81bb7f38d4b2d
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Fri May 16 10:54:52 2025 +0200
+
+    updated plots
+
+commit 782533e2a1925dbfd5b25689a479849af896b2eb
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Fri May 16 10:54:34 2025 +0200
+
+    bivariate choropleth maps plots font size modification
+
+commit d9a50affff42328baef6979e26973ce5dfbc855c
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Fri May 16 10:27:46 2025 +0200
+
+    notebook updated
+
+commit d98313d504e29daecb85bcade1abb2bc3c08e2ca
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Fri May 16 10:17:20 2025 +0200
+
+    plots added in images folder
+
+commit 36c17ff9a238381a5299b7780d8cddb01be124f1
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Fri May 16 10:16:48 2025 +0200
+
+    notebook updated
+
+commit 771330a61321312eab8ed32e20d65209d4fe03a9
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Fri May 16 10:15:45 2025 +0200
+
+    modifed README.md
+
+commit 63baf8ab994052b230b468b9a37e3f58d7f2609e
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Wed May 14 11:10:38 2025 +0200
+
+    README updated
+
+commit 9ae59d9b0bce2ae0a554bdc294b65852569e6e22
+Author: Veron <98952109+veronhoxha@users.noreply.github.com>
+Date:   Sun May 11 11:03:46 2025 +0200
+
+    added LICENSE
+
+commit 64953c31e2b5709bb943292d69c706db6b26bab0
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Sat May 10 12:35:23 2025 +0200
+
+    finding districts with similar characteristics - spatial clustering (k-means, silhouette score and calinski-harabasz index calculated for finding the best k)
+
+commit a9d24085ea5574c6a64bc55096f9e311d231c9f9
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Wed May 7 21:04:47 2025 +0200
+
+    small note about the interactive map
+
+commit 15ba900937e5633c765aee6f3eb53a6d1e012770
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Wed May 7 21:02:37 2025 +0200
+
+    global moran's I and LISA for poverty index: identifying if poor areas are clustered
+
+commit e52e2e5add48afcde9b6cfc95cdd0a040a02afd7
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Mon May 5 11:25:01 2025 +0200
+
+    interactive folium map for number of schools per 1000 population per each district added
+
+commit 540c57f726be8f6ebeb9fe9ff7e6c160baefbcb1
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Fri May 2 12:29:24 2025 +0200
+
+    updated choropleth maps to univariate and bivariate, pearson r and p value calculated and lowest and higest values for some variables found
+
+commit 09988a721dabca139e05c5134cf6f417f7b57c83
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Wed Apr 30 09:38:04 2025 +0200
+
+    basic exploration: folium map, correlation matrix of some indicators, outlier identification
+
+commit eda4104e9231ae2a48f626c7357e8df93db90824
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Mon Apr 28 10:36:11 2025 +0200
+
+    basic exploration of data
+
+commit 533538e7c04f5843c2a356083caac85a166e6958
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Mon Apr 28 09:23:55 2025 +0200
+
+    empty notebook added
+
+commit 82bb39b1fda7b151b880fbc1cd9df8077c0025fa
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Mon Apr 28 09:23:34 2025 +0200
+
+    data added
+
+commit c287e30b64bb65711eed20691dc8501a89a419dd
+Author: Veron <veronbhoxha@gmail.com>
+Date:   Mon Apr 28 09:23:10 2025 +0200
+
+    gitignore added
+
+commit 04ad636281f96abdcc0eecd1506bb421bf59ba06
+Author: Veron <98952109+veronhoxha@users.noreply.github.com>
+Date:   Mon Apr 28 09:19:35 2025 +0200
+
+    Initial commit
